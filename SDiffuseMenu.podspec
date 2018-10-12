@@ -16,12 +16,12 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'SDiffuseMenu'
-  s.version      = '1.2.1'
+  s.version      = '1.3.0'
   s.license      = 'MIT'
   s.summary      = 'SDiffuseMenu is Swift version of AwesomeMenu,can eject a gorgeous animation menu'
-  s.homepage     = 'https://github.com/mythkiven/DiffuseMenu_Swift'
+  s.homepage     = 'https://github.com/olafLi/DiffuseMenu_Swift.git'
   s.author       = { 'mythkiven' => '1282412855@qq.com' }
-  s.source       = { :git => 'https://github.com/mythkiven/DiffuseMenu_Swift.git', :tag => s.version }
+  s.source       = { :git => 'https://github.com/olafLi/DiffuseMenu_Swift.git', :tag => s.version }
   s.requires_arc = true
   
   s.platform     = :ios, '9.0'
