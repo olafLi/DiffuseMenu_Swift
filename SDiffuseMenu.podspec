@@ -24,8 +24,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/mythkiven/DiffuseMenu_Swift.git', :tag => s.version }
   s.requires_arc = true
   
-  s.platform     = :ios, '8.0'
-  s.ios.deployment_target = '8.0'
+  s.platform     = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'SDiffuseMenu/*.swift'
   #s.social_media_url = 'https://twitter.com/Mr3code'

@@ -127,44 +127,44 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
             
             switch sDiffuseMenuDirection {
             case .above: // 上方 180°
-                menuWholeAngle  = CGFloat(M_PI)
-                rotateAngle     = CGFloat(M_PI_2*3)
+                menuWholeAngle  = CGFloat(Double.pi)
+                rotateAngle     = CGFloat(Double.pi/2*3)
                 lineRotateAngle = CGFloat(0.0)
                 
             case .left: // 左方 180°
-                menuWholeAngle  = CGFloat(M_PI)
-                rotateAngle     = CGFloat(M_PI)
-                lineRotateAngle = CGFloat(-M_PI_2)
+                menuWholeAngle  = CGFloat(Double.pi)
+                rotateAngle     = CGFloat(Double.pi)
+                lineRotateAngle = CGFloat(-Double.pi/2)
                 
             case .below: // 下方 180°
-                menuWholeAngle  = CGFloat(M_PI)
-                rotateAngle     = CGFloat(M_PI_2)
-                lineRotateAngle = CGFloat(M_PI)
+                menuWholeAngle  = CGFloat(Double.pi)
+                rotateAngle     = CGFloat(Double.pi/2)
+                lineRotateAngle = CGFloat(Double.pi)
                 
             case .right: // 右方 180°
-                menuWholeAngle  = CGFloat(M_PI)
+                menuWholeAngle  = CGFloat(Double.pi)
                 rotateAngle     = CGFloat(0)
-                lineRotateAngle = CGFloat(M_PI_2)
+                lineRotateAngle = CGFloat(Double.pi/2)
                 
             case .upperLeft: // 左上角90°
-                menuWholeAngle  = CGFloat(M_PI_2)
-                rotateAngle     = CGFloat(-M_PI_2)
-                lineRotateAngle = CGFloat(-M_PI_4)
+                menuWholeAngle  = CGFloat(Double.pi/2)
+                rotateAngle     = CGFloat(-Double.pi/2)
+                lineRotateAngle = CGFloat(-Double.pi/4)
                 
             case .upperRight: // 右上角90°
-                menuWholeAngle  = CGFloat(M_PI_2)
+                menuWholeAngle  = CGFloat(Double.pi/2)
                 rotateAngle     = CGFloat(0)
-                lineRotateAngle = CGFloat(M_PI_4)
+                lineRotateAngle = CGFloat(Double.pi/4)
                 
             case .lowerLeft: // 左下角90°
-                menuWholeAngle  = CGFloat(M_PI_2)
-                rotateAngle     = CGFloat(-M_PI)
-                lineRotateAngle = CGFloat(-M_PI_4*3)
+                menuWholeAngle  = CGFloat(Double.pi/2)
+                rotateAngle     = CGFloat(-Double.pi)
+                lineRotateAngle = CGFloat(-Double.pi/4*3)
                 
             case .lowerRight: // 右下角90°
-                menuWholeAngle  = CGFloat(M_PI_2)
-                rotateAngle     = CGFloat(M_PI_2)
-                lineRotateAngle = CGFloat(M_PI_4*3)
+                menuWholeAngle  = CGFloat(Double.pi/2)
+                rotateAngle     = CGFloat(Double.pi/2)
+                lineRotateAngle = CGFloat(Double.pi/4*3)
                 
             default:
                 break
@@ -204,10 +204,10 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
     let kDiffuseMenuDefaultStartPointY                  = CGFloat(240.0)
     let kDiffuseMenuDefaultTimeOffset                   = 0.036
     let kDiffuseMenuDefaultRotateAngle                  = CGFloat(0.0)
-    let kDiffuseMenuRotateAddButtonAngle                = CGFloat(-M_PI_4)
-    let kDiffuseMenuDefaultMenuWholeAngle               = CGFloat(M_PI * 2)
-    let kDiffuseMenuDefaultExpandRotation               = CGFloat(M_PI)
-    let kDiffuseMenuDefaultCloseRotation                = CGFloat(M_PI * 2)
+    let kDiffuseMenuRotateAddButtonAngle                = CGFloat(-Double.pi/4)
+    let kDiffuseMenuDefaultMenuWholeAngle               = CGFloat(Double.pi * 2)
+    let kDiffuseMenuDefaultExpandRotation               = CGFloat(Double.pi)
+    let kDiffuseMenuDefaultCloseRotation                = CGFloat(Double.pi * 2)
     let kDiffuseMenuDefaultAnimationDuration            = 0.5
     let kDiffuseMenuStartMenuDefaultAnimationDuration   = 0.3
     
@@ -340,7 +340,7 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
         
         expanding = false
         
-        let angle =  self.expanding ? -M_PI_4 : 0.0
+        let angle =  self.expanding ? -Double.pi/4 : 0.0
         UIView.animate(withDuration: animationDuration, animations: {
             ()-> Void in
             self._startButton.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
@@ -596,7 +596,7 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
             item.tag        = 1000 + index
             item.startPoint = self.startPoint
             
-            if (menuWholeAngle >= CGFloat(M_PI * 2)) {
+            if (menuWholeAngle >= CGFloat(Double.pi * 2)) {
                 menuWholeAngle = menuWholeAngle - menuWholeAngle / (icount)
             }
             
@@ -617,19 +617,19 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
                 var x           = startPoint.x
                 var y           = startPoint.y + ti * CGFloat(endRadius / (icount + 1))
                 let endPoint    =  CGPoint(x: x,y: y)
-                item.endPoint   = _rotateCGPointAroundCenter(endPoint, center: startPoint, angle:  rotateAngle - CGFloat(M_PI))
+                item.endPoint   = _rotateCGPointAroundCenter(endPoint, center: startPoint, angle:  rotateAngle - CGFloat(Double.pi))
                 
                 x               = startPoint.x
                 y               = startPoint.y + ti * CGFloat(nearRadius / (icount + 1))
                 let nearPoint   =  CGPoint(x: x, y: y)
-                item.nearPoint  = _rotateCGPointAroundCenter(nearPoint, center: startPoint, angle: rotateAngle - CGFloat(M_PI))
+                item.nearPoint  = _rotateCGPointAroundCenter(nearPoint, center: startPoint, angle: rotateAngle - CGFloat(Double.pi))
                 
                 x               = startPoint.x
                 y               = startPoint.y + ti * CGFloat(farRadius / (icount + 1))
                 let farPoint    =  CGPoint(x: x, y: y)
-                item.farPoint   = _rotateCGPointAroundCenter(farPoint, center: startPoint, angle: rotateAngle - CGFloat(M_PI))
+                item.farPoint   = _rotateCGPointAroundCenter(farPoint, center: startPoint, angle: rotateAngle - CGFloat(Double.pi))
                 
-            }else { // 弧线形
+            } else { // 弧线形
                 var x           = startPoint.x + CGFloat(endRadius) * sinValue
                 var y           = (CGFloat(startPoint.y) - endRadius * cosValue)
                 let endPoint    =  CGPoint(x: x,y: y)

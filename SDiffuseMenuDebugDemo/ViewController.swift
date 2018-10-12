@@ -57,7 +57,7 @@ class ViewController: UIViewController, SDiffuseMenuDelegate {
         // 选项数组
         var menus = [SDiffuseMenuItem]()
         
-        for _ in 0 ..< 6 {
+        for _ in 0 ..< 4 {
             let starMenuItem =  SDiffuseMenuItem(image: storyMenuItemImage,
                                                  highlightedImage: storyMenuItemImagePressed, contentImage: starImage,
                                                  highlightedContentImage: nil)
@@ -120,30 +120,28 @@ class ViewController: UIViewController, SDiffuseMenuDelegate {
         // 动画配置:
         
         // 动画时长
-        menu.animationDuration  = CFTimeInterval(animationDrationValue.text!)
+        menu.animationDuration  = 0.5
         // 最小半径
-        menu.nearRadius         = CGFloat((nearRadiusValue.text! as NSString).floatValue)
+        menu.nearRadius         = 80
         // 结束半径
-        menu.endRadius          = CGFloat((endRadiusValue.text! as NSString).floatValue)
+        menu.endRadius          = 80
         // 最大半径
-        menu.farRadius          = CGFloat((farRadiusValue.text! as NSString).floatValue)
-        // 单个动画间隔时间
-        menu.timeOffset         = CFTimeInterval(timeOffSetValue.text!)!
-        // 整体角度
-        menu.menuWholeAngle     = CGFloat((menuWholeAngleValue.text! as NSString).floatValue)
-        // 整体偏移角度
-        menu.rotateAngle        = CGFloat((rotateAngleValue.text! as NSString).floatValue)
-        // 展开时自旋角度
-        menu.expandRotation     = CGFloat(M_PI)
-        // 结束时自旋角度
-        menu.closeRotation      = CGFloat(M_PI * 2)
-        // 是否旋转菜单按钮
-        menu.rotateAddButton    = isRotateAddButton.isOn
+        menu.farRadius          = 90
+//        // 整体角度
+//        menu.menuWholeAngle     = CGFloat(Double.pi / 4 * 3)
+//        // 整体偏移角度
+//        menu.rotateAngle        = CGFloat(Double.pi / 4 * 5)
+//        // 展开时自旋角度
+//        menu.expandRotation     = CGFloat(Double.pi / 2)
+//        // 结束时自旋角度
+//        menu.closeRotation      = CGFloat(Double.pi / 2)
+//        // 是否旋转菜单按钮
+//        menu.rotateAddButton    = isRotateAddButton.isOn
         // 菜单按钮旋转角度
-        menu.rotateAddButtonAngle = CGFloat((rotateAddButtonAngleValue.text! as NSString).floatValue)
+//        menu.rotateAddButtonAngle = CGFloat((rotateAddButtonAngleValue.text! as NSString).floatValue)
         // 菜单展示的形状:直线 or 弧形
-        menu.sDiffuseMenuGrapyType = isLineGrapyType.isOn == true ? .line : .arc
-       
+//        menu.sDiffuseMenuGrapyType = isLineGrapyType.isOn == true ? .line : .arc
+
         
         // 为方便使用,已枚举常见方位,可直接使用.无需再次设置 rotateAngle && menuWholeAngle
         // 若对于 rotateAngle\menuWholeAngle 不熟悉,建议查看 source 目录下的配置图片
@@ -153,7 +151,7 @@ class ViewController: UIViewController, SDiffuseMenuDelegate {
 //        menu.sDiffuseMenuDirection = .right // 右方180°
 //        menu.sDiffuseMenuDirection = .upperRight // 右上方90°
 //        menu.sDiffuseMenuDirection = .lowerRight // 右下方90°
-//        menu.sDiffuseMenuDirection = .upperLeft // 左上方90°
+        menu.sDiffuseMenuDirection = .upperLeft // 左上方90°
 //        menu.sDiffuseMenuDirection = .lowerLeft // 左下方90°
 //        menu.sDiffuseMenuDirection = .other
 
