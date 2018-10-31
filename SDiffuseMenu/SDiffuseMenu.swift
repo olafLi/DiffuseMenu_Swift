@@ -63,7 +63,7 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
         case lowerLeft  // 左下方90°
         
         case lowerRight // 右下方90°
-        
+
         case other      // 其他方向
     }
     
@@ -247,13 +247,13 @@ open class SDiffuseMenu : UIView, SDiffuseMenuItemDelegate, CAAnimationDelegate 
         
         self.addSubview(_startButton)
     }
-    
-    
-    //
-    //    func setStartPoint(_ aPoint: CGPoint) {
-    //        startPoint          = aPoint
-    //        _startButton.center = aPoint
-    //    }
+
+    public func udpateStartPoint(_ aPoint:CGPoint) {
+        self.startPoint = aPoint
+        _startButton.center = self.startPoint
+    }
+
+
     //    func setImage(_ image: UIImage) {
     //        _startButton.image = image
     //    }
